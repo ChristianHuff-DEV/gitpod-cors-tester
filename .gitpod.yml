@@ -1,0 +1,16 @@
+tasks:
+  # Setup the dockerized dependencies
+  - before: |
+      cd front-end
+      yarn install
+      gp sync-done dependencies
+  - name: front-end
+    init: |
+      export BACKEND_URL=$(gp url 8083)
+      gp sync-await dependencies
+    command: cd front-end && yarn start
+  - name: backend-end
+    init: |
+      export ALLOWED_ORIGINS=$(gp url 3000)
+      gp sync-await dependencies
+    command: cd back-end && go run main.go
