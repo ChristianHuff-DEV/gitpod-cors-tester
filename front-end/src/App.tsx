@@ -4,8 +4,7 @@ import "./App.css";
 
 function App() {
   const onClick = () => {
-    console.log(process.env.REACT_APP_BACKEND_URL as string);
-    axios.get(process.env.REACT_APP_BACKEND_URL as string);
+    axios.get("https://8083-moccasin-louse-v4vig3v0.ws-eu15.gitpod.io/test");
   };
 
   return (
