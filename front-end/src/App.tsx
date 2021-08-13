@@ -4,7 +4,15 @@ import "./App.css";
 
 function App() {
   const onClick = () => {
-    axios.get("https://8083-moccasin-louse-v4vig3v0.ws-eu15.gitpod.io/test");
+    axios.get("https://8083-moccasin-louse-v4vig3v0.ws-eu15.gitpod.io/test", {
+      withCredentials: true,
+    });
+  };
+
+  const onClickWithCredentials = () => {
+    axios.get("https://8083-moccasin-louse-v4vig3v0.ws-eu15.gitpod.io/test", {
+      withCredentials: true,
+    });
   };
 
   return (
@@ -15,6 +23,9 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <button onClick={onClick}>Send Request</button>
+        <button onClick={onClickWithCredentials}>
+          Send Request (withCredentials)
+        </button>
       </header>
     </div>
   );
